@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Para que el informe funcione corecctamente hay que poner secuencias a las tareas (SI==100) (NO==110) (BIEN == 130) (REGULA==140) (MAL == 150)-->
+<openerp>
+    <data>
+      <!--Creo la opcion de imprimir en ela pantalla de tareas-->
+         <report id="task_improvement_proposal"
+               string="Improvement Proposal"
+               model="project.task"
+               name="project_improvement_proposal.improvement_proposal"
+               report_type="qweb-pdf"/>
+
+    <template id="improvement_proposal">
+        <t t-call="report.html_container">
+          <t t-foreach="docs" t-as="o">
+            <div class="col-xs-6 col-xs-offset-1">
+            <t t-call="report.external_layout"></t>
+            </div>
+            <div class="page">
+
+
+            <div class="oe_structure">
+            <div class="col-xs-6 mt16" style="background:#A24689">
+              <h3 style="font-weight: bold; font-style:italic; margin-top:0; margin-bottom:0; color:#FFFFFF;">
+              <span >Improvement Proposal </span>
+              </h3>
+            </div>
+
+            <div class="row zero_min_height">
+              <div class="col-xs-12">
+                <div style="border-bottom: 3px solid #A24689;"/>
+              </div>
+            </div>
+
+            <div class="row mt32 mb32">
+
+              <div class="col-xs-6" style="background:#D8D8D8;">
+                <table class="table table-condensed" >
+                  <tr class="border-black">
+                  <div t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;, &quot;fax&quot;], &quot;no_marker&quot;: true}"/>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="row mt32 mb32">
+              <div style="padding: 15px;">
+                <table style="border: 3px solid #A24689; width:100%;">
+                <tr>
+                  <td>
+                    <span style="font-weight: bold;">Title: </span>
+                  </td>
+                  <td>
+                    <span t-field="o.name"/>
+                  </td>
+                </tr>
+                <tr>
+                    <td>
+                      <span style="font-weight: bold;">Code: </span>
+                    </td>
+                    <td>
+                      <span t-field="o.id"/>
+                    </td>
+                </tr>
+                    <tr>
+                      <td>
+                        <span style="font-weight: bold;">Applicant: </span>
+                      </td>
+                      <td>
+                        <span t-field="o.applicant_id.name"/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <span style="font-weight: bold;">Technician: </span>
+                      </td>
+                      <td>
+                          <span t-field="o.user_id"/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <span style="font-weight: bold;">Date: </span>
+                      </td>
+                      <td>
+                          <span t-field="o.date_start" t-field-options='{"widget": "date"}'/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <span style="font-weight: bold;">Valoration: </span>
+                      </td>
+                      <td>
+                          <span t-field="o.planned_hours"/><span> Hours </span>
+                      </td>
+                  </tr>
+
+            </table>
+              </div>
+
+            </div>
+
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th>DESCRIPTION</th>
+                </tr>
+              </thead>
+              <tbody class="sale_tbody" style="border-top: #A24689 3px solid;">
+                <td>
+                  <span t-field="o.description"/>
+                </td>
+              </tbody>
+            </table>
+
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th>PROPOSAL SOLUTION</th>
+                </tr>
+              </thead>
+              <tbody class="sale_tbody" style="border-top: #A24689 3px solid;">
+                <td>
+                  <span t-field="o.description_proposal"/>
+                </td>
+              </tbody>
+            </table>
+
+            <div class="col-xs-6 mt64 pull-right">
+              <table  style="border: 3px solid #A24689; width:100%; height:100px;">
+                <tr class="text-left">
+                  <td >Conform with proposal</td>
+                </tr>
+                <tr class="text-left">
+                  <td style="font-size: 8px; vertical-align:bottom;" >Before starting work must return signed this improvement proposal</td>
+                </tr>
+              </table>
+            </div>
+            </div>
+            </div>
+          </t>
+        </t>
+    </template>
+</data>
+</openerp>

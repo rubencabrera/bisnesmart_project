@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_project_issue_email" model="ir.ui.view">
+            <field name="name">project.issue.email</field>
+            <field name="model">project.issue</field>
+            <field name="inherit_id" ref="project_issue.project_issue_form_view" />
+            <field name="arch" type="xml">
+
+              <xpath expr="//field[@name='stage_id']" position="before">
+
+                  <button name="action_issue_send" string="Send by Email" type="object"  class="oe_highlight" groups="base.group_user"/>
+
+              </xpath>
+
+
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

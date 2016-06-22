@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_project_improvement_proposal_form" model="ir.ui.view">
+            <field name="name">project.task.improvement_proposal</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="arch" type="xml">
+
+              <xpath expr="/form/*" position="before">
+                <header>
+                  <button name="action_proposal_send" string="Send by Email" type="object"  class="oe_highlight" groups="base.group_user"/>
+                </header>
+              </xpath>
+
+              <xpath expr="//field[@name='planned_hours']" position="after">
+                      <field name="proposal_ok" string="Is Proposal?" />
+              </xpath>
+              <xpath expr="//field[@name='partner_id']" position="after">
+                      <field name="applicant_id"
+                             string="Applicant"
+                             attrs="{'invisible': [('proposal_ok','=',False)],'required':[('proposal_ok','=',True)]}" />
+              </xpath>
+
+
+                <xpath expr="//field[@name='description']" position="after">
+                        <field name="description_proposal"
+                               string="Description proposal"
+                               placeholder="Add a Description for the proposal improvement..."
+                               attrs="{'invisible': [('proposal_ok','=',False)]}"
+                                />
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

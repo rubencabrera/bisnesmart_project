@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <!-- EDI related Email Templates menu -->
+        <record model="ir.actions.act_window" id="action_email_templates">
+            <field name="name">Email Templates</field>
+            <field name="res_model">email.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="email_template.email_template_tree" />
+            <field name="search_view_id" ref="email_template.view_email_template_search"/>
+            <field name="context" eval="{'search_default_model_id': ref('project_issue.model_project_issue')}"/>
+        </record>
+    </data>
+
+    <!-- Mail template is done in a NOUPDATE block
+         so users can freely customize/delete them -->
+    <data>
+
+        <!--Email template -->
+        <record id="email_template_issue" model="email.template">
+            <field name="name">Issue - Send by Email</field>
+            <field name="email_from">${(object.user_id.email or '')|safe}</field>
+            <field name="subject">${object.company_id.name|safe} 'Issue' (Ref ${object.name or 'n/a' })</field>
+            <field name="partner_to">${object.partner_.id}</field>
+            <field name="model_id" ref="project_issue.model_project_issue"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_name">${(object.name or '').replace('/','_')}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+    <p>Hello ${object.partner_id.name},</p>
+
+    <p>Here is you issue: </p>
+
+    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+       &nbsp;&nbsp;<strong>REFERENCES</strong><br />
+       &nbsp;&nbsp;Code: <strong>${object.issue_code}</strong><br />
+       &nbsp;&nbsp;Tittle: <strong>${object.name}</strong><br />
+
+
+    </p>
+
+    <p>If you have any question, do not hesitate to contact us.</p>
+    <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>
+
+</div>
+            ]]></field>
+        </record>
+    </data>
+</openerp>

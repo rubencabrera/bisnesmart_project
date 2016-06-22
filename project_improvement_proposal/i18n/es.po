@@ -1,0 +1,213 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_improvement_proposal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-28 12:02+0000\n"
+"PO-Revision-Date: 2016-01-28 14:23+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: project_improvement_proposal
+#: model:email.template,body_html:project_improvement_proposal.email_template_task_proposal
+msgid ""
+"\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
+"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"\n"
+"    <p>Hello ${object.partner_id.name},</p>\n"
+"\n"
+"    <p>Here is you imrpovement proposal: </p>\n"
+"    <p>Remember that before starting work must return signed this "
+"improvement proposal</p>\n"
+"\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>REFERENCES</strong><br />\n"
+"       &nbsp;&nbsp;Tittle: <strong>${object.name}</strong><br />\n"
+"       &nbsp;&nbsp;Code: <strong>${object.id}</strong><br />\n"
+"       &nbsp;&nbsp;Hours total: <strong>${object.planned_hours} </"
+"strong><br />\n"
+"\n"
+"    </p>\n"
+"\n"
+"    <p>If you have any question, do not hesitate to contact us.</p>\n"
+"    <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>\n"
+"\n"
+"</div>\n"
+"            "
+msgstr ""
+"\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
+"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"\n"
+"    <p>Hola ${object.partner_id.name},</p>\n"
+"\n"
+"    <p>Esta es la propuesta de mejora: </p>\n"
+"    <p>Recuerdad que debes devolverla firmada para que podamos iniciar el "
+"trabajo</p>\n"
+"\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>REFERENCIA</strong><br />\n"
+"       &nbsp;&nbsp;Título: <strong>${object.name}</strong><br />\n"
+"       &nbsp;&nbsp;Código: <strong>${object.id}</strong><br />\n"
+"       &nbsp;&nbsp;Total Horas: <strong>${object.planned_hours} </"
+"strong><br />\n"
+"\n"
+"    </p>\n"
+"\n"
+"    <p>Si tienes cualquier duda estaremos encatados de resolverla..</p>\n"
+"    <p>El equipo de  ${object.company_id.name or 'us'}!</p>\n"
+"\n"
+"</div>\n"
+"            "
+
+#. module: project_improvement_proposal
+#: model:email.template,report_name:project_improvement_proposal.email_template_task_proposal
+msgid ""
+"${(object.name or '').replace('/','_')}_${object.state == 'draft' and "
+"'draft' or ''}"
+msgstr ""
+"${(object.name or '').replace('/','_')}_${object.state == 'draft' and "
+"'borrador' or ''}"
+
+#. module: project_improvement_proposal
+#: model:email.template,subject:project_improvement_proposal.email_template_task_proposal
+msgid ""
+"${object.company_id.name|safe} ${object.state in ('draft', 'sent') and "
+"'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })"
+msgstr ""
+"${object.company_id.name|safe} ${object.state in ('draft', 'sent') and "
+"'Presupuesto' or 'Pedido'} (Ref ${object.name or 'n/a' })"
+
+#. module: project_improvement_proposal
+#: view:project.task:project_improvement_proposal.view_project_improvement_proposal_form
+msgid "Add a Description for the proposal improvement..."
+msgstr "Añade una descripción para la propuesta de mejora"
+
+#. module: project_improvement_proposal
+#: field:project.task,applicant_id:0
+msgid "Apllicant"
+msgstr "Solicitante"
+
+#. module: project_improvement_proposal
+#: view:project.task:project_improvement_proposal.view_project_improvement_proposal_form
+msgid "Applicant"
+msgstr "Solicitante"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "Applicant:"
+msgstr "Solicitante:"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "Before starting work must return signed this improvement proposal"
+msgstr ""
+"Antes de empezar el trabajo tiene que devolver firmada la propuesta de mejora"
+
+#. module: project_improvement_proposal
+#: help:project.task,proposal_ok:0
+msgid "Check if this task is a improvementt proposal"
+msgstr "Marcar si la tarea es una propuesta de mejora"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "Code:"
+msgstr "Código:"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "Conform with proposal"
+msgstr "Conforme con la propuesta"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "DESCRIPTION"
+msgstr "DESCRIPCIÓN"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: project_improvement_proposal
+#: view:project.task:project_improvement_proposal.view_project_improvement_proposal_form
+#: field:project.task,description_proposal:0
+msgid "Description proposal"
+msgstr "Descripción de la propuesta"
+
+#. module: project_improvement_proposal
+#: model:ir.actions.act_window,name:project_improvement_proposal.action_email_templates
+msgid "Email Templates"
+msgstr "Plantillas email"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "Hours"
+msgstr "Horas"
+
+#. module: project_improvement_proposal
+#: model:ir.actions.report.xml,name:project_improvement_proposal.task_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "Improvement Proposal"
+msgstr "Propuesta de mejora"
+
+#. module: project_improvement_proposal
+#: view:project.task:project_improvement_proposal.view_project_improvement_proposal_form
+msgid "Is Proposal?"
+msgstr "¿Es una propuesta?"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "PROPOSAL SOLUTION"
+msgstr "SOLUCIÓN PROPUESTA"
+
+#. module: project_improvement_proposal
+#: help:project.task,applicant_id:0
+msgid "Person who demmand the improvement proposal"
+msgstr "Persona que solicita la propuesta de mejora"
+
+#. module: project_improvement_proposal
+#: help:project.task,description_proposal:0
+msgid "Proposal description."
+msgstr "Descripción de la propuesta"
+
+#. module: project_improvement_proposal
+#: field:project.task,proposal_ok:0
+msgid "Proposal ok"
+msgstr "Es propuesta"
+
+# modulo:
+# Propuestas de mejoras
+#. module: project_improvement_proposal
+#: view:project.task:project_improvement_proposal.view_project_improvement_proposal_form
+msgid "Send by Email"
+msgstr "Enviar por correo"
+
+#. module: project_improvement_proposal
+#: model:ir.model,name:project_improvement_proposal.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "Technician:"
+msgstr "Técnico:"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "Title:"
+msgstr "Título:"
+
+#. module: project_improvement_proposal
+#: view:website:project_improvement_proposal.improvement_proposal
+msgid "Valoration:"
+msgstr "Valoración:"

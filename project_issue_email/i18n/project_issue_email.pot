@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_issue_email
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-22 17:11+0000\n"
+"PO-Revision-Date: 2016-06-22 17:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_issue_email
+#: model:email.template,body_html:project_issue_email.email_template_issue
+msgid "\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"\n"
+"    <p>Hello ${object.partner_id.name},</p>\n"
+"\n"
+"    <p>Here is you imrpovement proposal: </p>\n"
+"    <p>Remember that before starting work must return signed this improvement proposal</p>\n"
+"\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>REFERENCES</strong><br />\n"
+"       &nbsp;&nbsp;Tittle: <strong>${object.name}</strong><br />\n"
+"       &nbsp;&nbsp;Code: <strong>${object.id}</strong><br />\n"
+"\n"
+"    </p>\n"
+"\n"
+"    <p>If you have any question, do not hesitate to contact us.</p>\n"
+"    <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>\n"
+"\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: project_issue_email
+#: model:email.template,report_name:project_issue_email.email_template_issue
+msgid "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}"
+msgstr ""
+
+#. module: project_issue_email
+#: model:email.template,subject:project_issue_email.email_template_issue
+msgid "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })"
+msgstr ""
+
+#. module: project_issue_email
+#: model:ir.actions.act_window,name:project_issue_email.action_email_templates
+msgid "Email Templates"
+msgstr ""
+
+#. module: project_issue_email
+#: model:ir.model,name:project_issue_email.model_project_issue
+msgid "Project Issue"
+msgstr ""
+
+#. module: project_issue_email
+#: view:project.issue:project_issue_email.view_project_issue_email
+msgid "Send by Email"
+msgstr ""
+

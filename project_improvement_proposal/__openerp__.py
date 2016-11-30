@@ -25,6 +25,7 @@
     "website": "http://www.bisnesmart.com",
     "depends": [
         "project",
+        "email_template",
     ],
     "data": [
         "report/report_improvement_proposal.xml",

@@ -4,7 +4,7 @@
         <!-- EDI related Email Templates menu -->
         <record model="ir.actions.act_window" id="action_email_templates">
             <field name="name">Email Templates</field>
-            <field name="res_model">mail.template</field>
+            <field name="res_model">email.template</field>
             <field name="view_type">form</field>
             <field name="view_mode">form,tree</field>
             <field name="view_id" ref="email_template.email_template_tree" />
@@ -22,7 +22,7 @@
             <field name="name">Improvement proposal - Send by Email</field>
             <field name="email_from">${(object.user_id.email or '')|safe}</field>
             <field name="subject">${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })</field>
-            <field name="partner_to">${object.partner_invoice_id.id}</field>
+            <field name="partner_to">${object.partner_id.id}</field>
             <field name="model_id" ref="project.model_project_task"/>
             <field name="report_template" ref="task_improvement_proposal"/>
             <field name="auto_delete" eval="True"/>
@@ -33,8 +33,8 @@
 
     <p>Hello ${object.partner_id.name},</p>
 
-    <p>Here is you imrpovement proposal: </p>
-    <p>Remember that before starting work must return signed this improvement proposal</p>
+    <p>This is an improvement proposal based on your requests: </p>
+    <p>Remember that before starting any work you must return a signed copy of this improvement proposal</p>
 
     <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
        &nbsp;&nbsp;<strong>REFERENCES</strong><br />

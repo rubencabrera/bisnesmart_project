@@ -3,32 +3,38 @@
 # (c) 2015 bisnesmart
 # License AGPL-3 - See LICENSE file on root folder for details
 ##############################################################################
-from openerp import models, fields, api
+from openerp import models, fields
 
 
 class ProjectTasks(models.Model):
     _inherit = "project.task"
 
     description_proposal = fields.Text(help="Proposal description.")
-    proposal_ok = fields.Boolean(help="Check if this task is a improvementt proposal")
-    applicant_id = fields.Many2one('res.partner', string='Apllicant', help="Person who demmand the improvement proposal")
-
-    defaults = {
-    'proposal_ok': False,
-    }
+    proposal_ok = fields.Boolean(
+        help="Check if this task is a improvementt proposal",
+        default=False,
+    )
+    applicant_id = fields.Many2one(
+        'res.partner',
+        string='Apllicant',
+        help="Person who demmands the improvement proposal")
 
     def action_proposal_send(self, cr, uid, ids, context=None):
-        '''
-        This function opens a window to compose an email, with the edi proposal template message loaded by default
-        '''
-        assert len(ids) == 1, 'This option should only be used for a single id at a time.'
+        """
+        This function opens a window to compose an email, with the edi proposal
+        template message loaded by default.
+        """
+        assert len(ids) == 1, 'This option should only be used for a single id\
+            at a time.'
         ir_model_data = self.pool.get('ir.model.data')
         try:
-            template_id = ir_model_data.get_object_reference(cr, uid, 'project', 'email_template_task_proposal')[1]
+            template_id = ir_model_data.get_object_reference(
+                cr, uid, 'project', 'email_template_task_proposal')[1]
         except ValueError:
             template_id = False
         try:
-            compose_form_id = ir_model_data.get_object_reference(cr, uid, 'mail', 'email_compose_message_wizard_form')[1]
+            compose_form_id = ir_model_data.get_object_reference(
+                cr, uid, 'email', 'email_compose_message_wizard_form')[1]
         except ValueError:
             compose_form_id = False
         ctx = dict()
